@@ -7,14 +7,14 @@
    var hexziffer = new Array ("0","1","2","3","4","5","6","7","8","9", "A","B","C","D","E","F" );
    var farbinterval;
    var schritte = 100;
-   function Farbe(rot,gr,bl)  //  Objekt f¸r aktuelle Farbe
+   function Farbe(rot,gr,bl)  //  Objekt f√ºr aktuelle Farbe
    {
     this.rot = rot;
     this.gr = gr;
     this.bl = bl;
     }
 var aktfarbe  = new Farbe(0,0,0);         // beginnt mit Schwarz
-var zielfarbe = new Farbe(255,255,255);   // am Ende steht Weiﬂ
+var zielfarbe = new Farbe(255,255,255);   // am Ende steht Wei√ü
 var schrittweite = new Farbe(0,0,0);
 
   function Farbschritt()
@@ -40,7 +40,7 @@ var schrittweite = new Farbe(0,0,0);
   function dechex(deczahl)
   {
     /*  Wandeln Dezimalzahl in Hexa  */
-    /* Abrunden  nach Division   */
+    /* Abrunden  nach Division  kkkk  */
    var     hexlinks =  hexziffer[Math.floor(deczahl / 16)];
     /*  modulo 16   */
    var  hexrechts =  hexziffer[deczahl % 16];
