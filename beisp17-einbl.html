@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Einblenden</title>
+<script type="text/javascript" LANGUAGE="Javascript">
+<!--
+
+   var hexziffer = new Array ("0","1","2","3","4","5","6","7","8","9", "A","B","C","D","E","F" );
+   var farbinterval;
+   var schritte = 100;
+   function Farbe(rot,gr,bl)  //  Objekt für aktuelle Farbe
+   {
+    this.rot = rot;
+    this.gr = gr;
+    this.bl = bl;
+    }
+var aktfarbe  = new Farbe(0,0,0);         // beginnt mit Schwarz
+var zielfarbe = new Farbe(255,255,255);   // am Ende steht Weiß
+var schrittweite = new Farbe(0,0,0);
+
+  function Farbschritt()
+  {
+   aktfarbe.rot += schrittweite.rot;
+   aktfarbe.gr += schrittweite.gr;
+   aktfarbe.bl += schrittweite.bl;
+   if (aktfarbe.rot > zielfarbe.rot) aktfarbe.rot = zielfarbe.rot;
+   if (aktfarbe.gr > zielfarbe.gr) aktfarbe.gr = zielfarbe.gr;
+   if (aktfarbe.bl > zielfarbe.bl) aktfarbe.bl = zielfarbe.bl;
+
+   document.bgColor = "#" + dechex(Math.floor(aktfarbe.rot)) +  dechex(Math.floor(aktfarbe.gr))  + dechex(Math.floor(aktfarbe.bl))
+
+  if (aktfarbe.rot >= zielfarbe.rot && aktfarbe.gr >= zielfarbe.gr &&
+    aktfarbe.bl >= zielfarbe.bl )
+  {
+  clearInterval(farbinterval);
+  }
+
+  }
+
+
+  function dechex(deczahl)
+  {
+    /*  Wandeln Dezimalzahl in Hexa  */
+    /* Abrunden  nach Division   */
+   var     hexlinks =  hexziffer[Math.floor(deczahl / 16)];
+    /*  modulo 16   */
+   var  hexrechts =  hexziffer[deczahl % 16];
+   var  hexzahl=hexlinks+hexrechts;
+   return hexzahl;    // Ausgabe 2 Hexa-Zeichen
+  }
+
+
+
+  function aufblenden()
+  {
+   schrittweite.rot = zielfarbe.rot / schritte;
+   schrittweite.gr = zielfarbe.gr / schritte;
+   schrittweite.bl = zielfarbe.bl / schritte;
+   farbinterval = setInterval("Farbschritt()",10);
+  }
+
+
+//-->
+</script>
+</head>
+<body text="#000000" bgcolor="black" link="#FF0000" alink="#FF0000" vlink="#FF0000" SCROLL=auto onLoad="window.setTimeout('aufblenden()',1000)">
+
+
+<center>
+<h1>meine supertolle Seite
+</h1>
+</center>
+ Wir finden es ganz prima, dass Sie hierher
+ gefunden haben. Warten Sie ruhig ab, bis das Bild erscheint!<Br>
+
+ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<Br>
+
+
+ Wir benutzen Umlaute wie  &Auml; &Ouml; &Uuml; .
+
+
+</body>
+</html>
